@@ -5,28 +5,13 @@
  *********************************************************************/
 #include "Application.h"
 
+void Application::demarrer() {
+    trappe.demarrer();
+    Serial.begin(Reglages::vitesseSerie);
 
-Application::Application()
-{
-  // Code
-  ; 
-}
-  
-Application::~Application()
-{
-  // Code
-  ;
-}  
+    prete=quota.reglagesValides();
+    if (!prete) {
+        Serial.println("Verifie le quota et la reserve dans Reglages.h.");
+        return;
+    }
 
-void Application::init(void)
-{
-  // Code
-    ;
-}
-
-
-void Application::run(void)
-{
-  // Code
-    ;
-}
