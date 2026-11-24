@@ -11,26 +11,17 @@
 #include "src/feeder/Quota.h"
 #include "src/feeder/Distribution.h"
     
-class Application
-{
-  public :
-    void demarrer();
-    void tour();  
-    Application();
-    /**
-     * @fn Application();
-     * @brief Destructeur
-    */    
-    ~Application();    
-    /**
-     * @fn void init(void)
-     * @brief Fonction d'initialisation de l'application
-    */
-    void init(void);
-    /**
-     * @fn void run(void)
-     * @brief Fonction de lancement de l'application
-    */
-    void run(void);
+class Application{
+public :
+  void demarrer();
+  void tour();  
+  void demanderPortion(Demande demande, uint32_t maintenant);
+  void afficherCompteur() const;
+
+  TrappeLed trappe (Reglages::brocheLed, Reglages::ledAllumeeAvecLow);
+
+  Quota quota{Reglages::portionsParJour,Reglages::portionsPourBouton,Reglages::attenteEntrePortions};
+
+  bool prete = false;
 };
 #endif
