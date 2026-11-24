@@ -6,17 +6,16 @@
 #ifndef APPLICATION_H_
 #define APPLICATION_H_
 
-/**
-  * @class Application
-  * @brief Classe Application 
-*/    
+#include "Reglages.h"
+#include "src/devices/TrappeLed.h"
+#include "src/feeder/Quota.h"
+#include "src/feeder/Distribution.h"
+    
 class Application
 {
   public :
-    /**
-     * @fn Application();
-     * @brief Constructeur par defaut
-    */    
+    void demarrer();
+    void tour();  
     Application();
     /**
      * @fn Application();
