@@ -14,11 +14,13 @@
 class Application{
 public :
   void demarrer();
-  void tour();  
+  void tour();
+private:  
   void demanderPortion(Demande demande, uint32_t maintenant);
   void afficherCompteur() const;
   TrappeLed trappe (Reglages::brocheLed, Reglages::ledAllumeeAvecLow);
   Quota quota(Reglages::portionsParJour,Reglages::portionsPourBouton,Reglages::attenteEntrePortions);
+  Distribution distribution(trappe, Reglages::dureeOuverture,Reglages::dureeFermeture);
   bool prete = false;
 };
 #endif
