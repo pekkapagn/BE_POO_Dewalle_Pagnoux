@@ -1,7 +1,7 @@
 /*********************************************************************
  * @file  Apllication.cpp
- * @author <mettre l'adresse mail ou nom prenom>
- * @brief Fichier source de l'application
+ * @author Pablo Pagnoux et Claire Dewalle
+ * @brief Fichier source de l'application pour un prototype de gamelle connectée basée sur un ESP8266
  *********************************************************************/
 #include "Application.h"
 

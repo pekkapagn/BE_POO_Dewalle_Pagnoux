@@ -1,7 +1,8 @@
 #include "Distribution.h"
 
-Distribution::Distribution(Trappe& tr, uint32_t durOuv, uint32_t durFer){
-    trappe=tr;
+Distribution::Distribution(Trappe& tr, uint32_t durOuv, uint32_t durFer):
+    trappe(tr)
+{
     dureeOuverture=durOuv;
     dureeFermeture=durFer;
 }

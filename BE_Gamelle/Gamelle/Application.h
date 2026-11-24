@@ -1,7 +1,7 @@
 /*********************************************************************
  * @file  Apllication.h
- * @author <mettre l'adresse mail ou nom prenom>
- * @brief Fichier header de l'application
+ * @author Pablo Pagnoux et Claire Dewalle
+ * @brief Application pour un prototype de gamelle connectée basée sur un ESP8266
  *********************************************************************/
 #ifndef APPLICATION_H_
 #define APPLICATION_H_
