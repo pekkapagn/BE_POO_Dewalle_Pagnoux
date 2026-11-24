@@ -17,11 +17,8 @@ public :
   void tour();  
   void demanderPortion(Demande demande, uint32_t maintenant);
   void afficherCompteur() const;
-
   TrappeLed trappe (Reglages::brocheLed, Reglages::ledAllumeeAvecLow);
-
-  Quota quota{Reglages::portionsParJour,Reglages::portionsPourBouton,Reglages::attenteEntrePortions};
-
+  Quota quota(Reglages::portionsParJour,Reglages::portionsPourBouton,Reglages::attenteEntrePortions);
   bool prete = false;
 };
 #endif
