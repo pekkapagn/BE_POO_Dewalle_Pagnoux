@@ -57,7 +57,31 @@ void Application::tour() {
 }
 
 
-void Application::demanderPortion(Demande demande, uint32_t maintenant) {}
+void Application::demanderPortion(Demande demande, uint32_t maintenant) {
+  if (distribution.enCours()) {
+      Serial.println("Il y a deja une distribution en cours.");
+      return;
+  }
+
+  switch (quota.verifier(demande, maintenant)) {
+    case Reponse::Oui:
+      distribution.lancer(demande, maintenant);
+      Serial.println("La trappe s'ouvre.");
+      break;
+
+    case Reponse::QuotaAtteint:
+      Serial.println("Plus de portions pour aujourd'hui.");
+      break;
+
+    case Reponse::ReserveBouton:
+      Serial.println("Le reste est reserve au bouton.");
+      break;
+
+    case Reponse::TropTot:
+      Serial.println("Attends un peu avant la prochaine portion.");
+      break;
+  }
+}
 
 void Application::afficherCompteur() const {
   Serial.print("Portions : ");
