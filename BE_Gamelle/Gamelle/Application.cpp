@@ -54,7 +54,7 @@ void Application::tour() {
         afficherCompteur();
         break;
   }
-
+}
 
 
 void Application::demanderPortion(Demande demande, uint32_t maintenant) {}
