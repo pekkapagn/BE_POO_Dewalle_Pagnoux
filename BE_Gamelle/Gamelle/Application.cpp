@@ -66,3 +66,4 @@ void Application::afficherCompteur() const {
   Serial.println(Reglages::portionsParJour);
 }
 
+

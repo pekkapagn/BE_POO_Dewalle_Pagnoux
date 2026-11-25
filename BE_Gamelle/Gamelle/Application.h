@@ -20,7 +20,7 @@ private:
   void afficherCompteur() const;
   TrappeLed trappe {Reglages::brocheLed, Reglages::ledAllumeeAvecLow};
   Quota quota{Reglages::portionsParJour,Reglages::portionsPourBouton,Reglages::attenteEntrePortions};
-  Distribution distribution{trappe, Reglages::dureeOuverture,Reglages::dureeFermeture{};
+  Distribution distribution{trappe, Reglages::dureeOuverture,Reglages::dureeFermeture};
   bool prete = false;
 };
 #endif
