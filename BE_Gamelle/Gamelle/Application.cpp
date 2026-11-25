@@ -19,7 +19,43 @@ void Application::demarrer() {
   afficherCompteur();
 }
 
-void Application::tour() {}
+void Application::tour() {
+  if (!prete) {
+    return;
+  }
+  uint32_t maintenant = millis();
+  Demande demandeFinie;
+  if (distribution.avancer(maintenant, demandeFinie)) {
+    quota.compter(demandeFinie, maintenant);
+    Serial.println("Distribution terminee.");
+    afficherCompteur();
+  } if (Serial.available() == 0) {
+    return;
+  } switch (Serial.read()) {
+    case 'a':
+        demanderPortion(Demande::Arrivee, maintenant);
+        break;
+
+    case 'm':
+        demanderPortion(Demande::Bouton, maintenant);
+        break;
+
+    case 'n':
+        if (distribution.enCours()) {
+            Serial.println("Attends que la trappe se ferme.");
+        } else {
+            quota.nouveauJour();
+            Serial.println("On passe au lendemain.");
+            afficherCompteur();
+        }
+        break;
+
+    case '?':
+        afficherCompteur();
+        break;
+  }
+
+
 
 void Application::demanderPortion(Demande demande, uint32_t maintenant) {}
 
