@@ -1,5 +1,7 @@
 #include "Application.h"
 
+Application gamelle;
+
 void setup() {
     gamelle.demarrer();
 }
