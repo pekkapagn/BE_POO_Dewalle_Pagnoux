@@ -10,18 +10,32 @@ class TrappeServo : public Trappe {
 public:
 
     //constructeur
-    TrappeServo(/*int broche, bool allumeeAvecLow*/)
-        /*: broche(broche), allumeeAvecLow(allumeeAvecLow)*/ {
+    TrappeServo(int broche, int angleFerme, int angleOuvert) {
+        this->broche=broche;
+        this->angleFerme=angleFerme;
+        this->angleOuvert=angleOuvert;
     }
 
     //définitions obligatoires liées à l'héritage
-    void demarrer() override; 
-    void ouvrir() override;
-    void fermer() override;
+    void demarrer() override {
+        servo.attach(broche);
+        fermer();
+    }; 
+
+    void ouvrir() override {
+        servo.write(angleOuvert);
+    };
+
+    void fermer() overrid {
+        servo.write(angleFerme);
+    };
 
 private:
     int broche;
-    //bool allumeeAvecLow;
+    int angleFerme;
+    int angleOuvert;
+    //appel à la bibliothèque pour créer un objet Servo
+    Servo Moteur;
 };
 
 #endif
