@@ -26,7 +26,7 @@ public:
         servo.write(angleOuvert);
     };
 
-    void fermer() overrid {
+    void fermer() override {
         servo.write(angleFerme);
     };
 

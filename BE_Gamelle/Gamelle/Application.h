@@ -7,7 +7,7 @@
 #define APPLICATION_H_
 
 #include "Reglages.h"
-#include "src/devices/TrappeLed.h"
+#include "src/devices/TrappeServo.h"
 #include "src/feeder/Quota.h"
 #include "src/feeder/Distribution.h"
     
@@ -18,7 +18,7 @@ public :
 private:  
   void demanderPortion(Demande demande, uint32_t maintenant);
   void afficherCompteur() const;
-  TrappeLed trappe {Reglages::brocheLed, Reglages::ledAllumeeAvecLow};
+  TrappeServo trappe {Reglages::brocheServo, Reglages::setAngleFerme, Reglages::setAngleOuvert};
   Quota quota{Reglages::portionsParJour,Reglages::portionsPourBouton,Reglages::attenteEntrePortions};
   Distribution distribution{trappe, Reglages::dureeOuverture,Reglages::dureeFermeture};
   bool prete = false;
